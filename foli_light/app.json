@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "foli_light",
+    "slug": "foli_light",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/bus.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/bus.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/bus.png",
+        "backgroundColor": "#F0B323aa"
+      },
+      "package": "com.pele98.foli_light"
+    },
+    "web": {
+      "favicon": "./assets/bus.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9a341d29-8a10-4183-af04-0129c1a8cac0"
+      }
+    }
+  }
+}
