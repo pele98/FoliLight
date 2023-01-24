@@ -27,7 +27,7 @@ export default function Navigator() {
                 tabBarInactiveTintColor: 'gray',
             })}
         >
-            <Tab.Screen name="Main" component={Main} options={{ title: 'Main' }} />
+            <Tab.Screen name="Main" component={Main} options={{ title: 'Bus stops' }} />
             <Tab.Screen name="Map" component={Map} options={{ title: 'Map' }} />
         </Tab.Navigator>
 

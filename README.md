@@ -11,7 +11,6 @@ Application uses Föli's public api to fetch data.
 With expo installed application can ran locally: 
 
 ```
-cd foli_light
 npm install
 expo start
 ```
