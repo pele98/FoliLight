@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState, createRef } from 'react';
-import MapView, { Geojson, Marker } from 'react-native-maps';
+import MapView, { Geojson, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Modal, StyleSheet, Text, Pressable, View } from 'react-native';
 import { UserContext } from '../context/UserContext';
 import axios from 'axios';
-import getEnvVars from '../config';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Map = props => {
 
-  const { API_URI } = getEnvVars();
+  const API_URI = 'http://data.foli.fi/';
 
   const { setSelectedStop, routeData } = useContext(UserContext);
 
@@ -65,12 +64,15 @@ const Map = props => {
     async function fetchStopData() {
       const stopResult = await axios.get(`${API_URI}gtfs/stops`)
       const keys = Object.keys(stopResult.data);
-      let tempStopList = [];
-      for (let index = 0; index < keys.length; index++) {
-        const element = keys[index];
-        tempStopList.push(stopResult.data[element]);
+      if (keys) {
+        let tempStopList = [];
+        for (let index = 0; index < keys.length; index++) {
+          const element = keys[index];
+          tempStopList.push(stopResult.data[element]);
+        }
+        setStops(tempStopList);
       }
-      setStops(tempStopList);
+     
     }
     fetchStopData();
     fetch(`${API_URI}geojson/bounds`)
@@ -81,7 +83,6 @@ const Map = props => {
       .catch((error) => {
         console.error(error);
       });
-    //requestLocationData();
   }, [])
 
   useEffect(() => {
@@ -172,9 +173,7 @@ const Map = props => {
         onRegionChangeComplete={e => fetchStops(e)}
         style={{ flex: 1 }}
         initialRegion={initialRegion}
-        showsUserLocation={true}
-        showsMyLocationButton={true}
-        followsUserLocation={true}
+        provider={PROVIDER_GOOGLE}
         ref={mapView}
       >
         {

@@ -4,11 +4,9 @@ import { UserContext } from '../context/UserContext';
 import SearchBarComponent from '../components/SearchBar';
 import CardComponent from '../components/CardComponent';
 
-import getEnvVars from '../config';
-
 const Main = props => {
 
-  const { API_URI } = getEnvVars();
+  const API_URI = 'http://data.foli.fi/';
 
   const { stopData, setStopData, selectedStop, setSelectedStop, setRouteData } = useContext(UserContext);
   const [currentStopSchedule, setCurrentStopSchedule] = useState([]);

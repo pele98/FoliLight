@@ -5,11 +5,10 @@ import { UserContext } from '../context/UserContext';
 import { format, fromUnixTime } from 'date-fns'
 import axios from 'axios';
 import { Card } from '@rneui/themed';
-import getEnvVars from '../config';
 
 const CardComponent = props => {
 
-  const { API_URI } = getEnvVars();
+  const API_URI = 'http://data.foli.fi/';
 
   const { setRouteData } = useContext(UserContext);
 

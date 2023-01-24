@@ -2,12 +2,6 @@ import { StyleSheet } from 'react-native';
 import { UserProvider } from './context/UserContext';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigator from './views/Navigator';
-import getEnvVars from './config';
-
-const { API_URI } = getEnvVars();
-
-const uri = API_URI;
-
 
 export default function App() {
   return (

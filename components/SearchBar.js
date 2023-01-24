@@ -3,12 +3,9 @@ import { SearchBar } from '@rneui/themed';
 import { Text, StyleSheet, View, FlatList } from 'react-native';
 import { UserContext } from '../context/UserContext';
 
-import getEnvVars from '../config';
-
-
 const SearchBarComponent = props => {
 
-  const { API_URI } = getEnvVars();
+  const API_URI = 'http://data.foli.fi/';
 
   const { stopData, setStopData } = useContext(UserContext);
 
